@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="1400" viewBox="0 0 2000 1400">
+<defs>
+ <linearGradient id="navy" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#08294D"/><stop offset="1" stop-color="#001B38"/></linearGradient>
+ <linearGradient id="green" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00D68F"/><stop offset="1" stop-color="#00A878"/></linearGradient>
+ <linearGradient id="deepgreen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00B989"/><stop offset="1" stop-color="#006B5A"/></linearGradient>
+</defs>
+<!-- Transparent background; rounded-square mark with custom S-shaped negative space -->
+<g transform="translate(550 80)">
+ <path d="M190 0 H570 L330 150 C278 183 254 226 254 280 C254 329 279 362 331 390 L510 488 C548 509 568 539 568 578 C568 616 547 647 510 670 L270 815 H190 C102 815 30 743 30 655 V160 C30 72 102 0 190 0 Z" fill="url(#navy)"/>
+ <path d="M570 0 C658 0 730 72 730 160 V655 C730 743 658 815 570 815 H270 L468 694 C525 659 559 620 559 570 C559 523 534 490 484 461 L300 357 C263 336 244 307 244 270 C244 230 265 197 305 172 Z" fill="url(#green)"/>
+ <path d="M300 357 L484 461 C534 490 559 523 559 570 C559 620 525 659 468 694 L270 815 H570 C658 815 730 743 730 655 V655 C660 680 600 659 559 620 C535 597 522 571 522 541 C522 509 500 481 462 459 L300 357 Z" fill="url(#deepgreen)" opacity=".88"/>
+ <path d="M190 0 H570 L330 150 C278 183 254 226 254 280 C254 329 279 362 331 390 L510 488 C548 509 568 539 568 578 C568 616 547 647 510 670 L270 815 L442 710 C498 675 531 632 531 581 C531 536 509 503 462 476 L284 374 C235 346 210 314 210 271 C210 220 234 180 285 149 Z" fill="#FFFFFF"/>
+</g>
+<!-- Wordmark -->
+<text x="1000" y="1160" text-anchor="middle" font-family="Inter, Montserrat, Arial, sans-serif" font-size="205" font-weight="750" letter-spacing="-7"><tspan fill="#08294D">Spend</tspan><tspan fill="#00B77D">Wise</tspan></text>
+</svg>

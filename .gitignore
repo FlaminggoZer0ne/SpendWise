@@ -1,0 +1,34 @@
+# ---- Backend (Maven / Java) ----
+backend/target/
+backend/src/main/resources/application.properties
+*.class
+*.log
+hs_err_pid*
+
+# ---- Frontend (Node / Vite) ----
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+.env
+.env.*
+!.env.example
+npm-debug.log*
+
+# ---- IDE ----
+.idea/
+*.iml
+.vscode/
+!.vscode/extensions.json
+.settings/
+.project
+.classpath
+nbproject/
+.netbeans/
+
+# ---- OS ----
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- SonarQube / coverage ----
+.scannerwork/
