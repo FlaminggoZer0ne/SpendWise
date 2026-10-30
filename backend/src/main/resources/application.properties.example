@@ -1,0 +1,22 @@
+# Salin file ini menjadi application.properties lalu sesuaikan username/password database.
+# application.properties TIDAK di-commit (ada di .gitignore).
+
+spring.application.name=spendwise
+server.port=8080
+
+spring.datasource.url=jdbc:mysql://localhost:3306/spendwise?useSSL=false&serverTimezone=Asia/Jakarta&allowPublicKeyRetrieval=true&characterEncoding=UTF-8
+spring.datasource.username=root
+spring.datasource.password=
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# Session login
+server.servlet.session.timeout=2h
+server.servlet.session.cookie.http-only=true
+server.servlet.session.cookie.same-site=lax
+
+# JSON
+spring.jackson.time-zone=Asia/Jakarta
+spring.jackson.serialization.write-dates-as-timestamps=false
+
+# Logging
+logging.level.com.spendwise=INFO
