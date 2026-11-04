@@ -1,31 +1,7 @@
 import { NavLink } from "react-router-dom";
-import {
-  ArrowLeftRight,
-  BarChart3,
-  FolderCog,
-  LayoutDashboard,
-  PieChart,
-  Tags,
-  Target,
-  UserCircle,
-  Users,
-  Wallet,
-  X,
-} from "lucide-react";
+import { X } from "lucide-react";
 import { useAuth } from "../../context/AuthContext";
-
-const MENU = {
-  DASHBOARD: { label: "Dashboard", icon: LayoutDashboard, path: "/dashboard" },
-  TRANSACTIONS: { label: "Transaksi", icon: ArrowLeftRight, path: "/transactions" },
-  WALLETS: { label: "Dompet", icon: Wallet, path: "/wallets" },
-  CATEGORIES: { label: "Kategori", icon: Tags, path: "/categories" },
-  BUDGETS: { label: "Anggaran", icon: PieChart, path: "/budgets" },
-  GOALS: { label: "Tabungan", icon: Target, path: "/goals" },
-  REPORTS: { label: "Laporan", icon: BarChart3, path: "/reports" },
-  USERS: { label: "Kelola Pengguna", icon: Users, path: "/admin/users" },
-  DEFAULT_CATEGORIES: { label: "Kategori Default", icon: FolderCog, path: "/admin/categories" },
-  PROFILE: { label: "Profil", icon: UserCircle, path: "/profile" },
-};
+import { MENU } from "./menu";
 
 export default function Sidebar({ open, onClose }) {
   const { user } = useAuth();
@@ -33,9 +9,9 @@ export default function Sidebar({ open, onClose }) {
 
   return (
     <>
-      {open && <div className="fixed inset-0 z-30 bg-slate-900/40 md:hidden" onClick={onClose} aria-hidden="true" />}
+      {open && <div className="fixed inset-0 z-30 bg-slate-900/30 backdrop-blur-sm md:hidden" onClick={onClose} aria-hidden="true" />}
       <aside
-        className={`fixed inset-y-0 left-0 z-40 flex w-60 flex-col border-r border-slate-200 bg-white transition-transform md:translate-x-0 ${open ? "translate-x-0" : "-translate-x-full"}`}
+        className={`glass-strong fixed inset-y-0 left-0 z-40 flex w-60 flex-col rounded-none border-y-0 border-l-0 transition-transform md:translate-x-0 ${open ? "translate-x-0" : "-translate-x-full"}`}
       >
         <div className="flex h-16 items-center justify-between px-5">
           <div className="flex items-center gap-2">
@@ -53,8 +29,8 @@ export default function Sidebar({ open, onClose }) {
               to={path}
               onClick={onClose}
               className={({ isActive }) =>
-                `flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium ${
-                  isActive ? "bg-emerald-50 text-emerald-700" : "text-slate-600 hover:bg-slate-100"
+                `flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-medium transition-colors ${
+                  isActive ? "bg-emerald-50/90 text-emerald-700 ring-1 ring-white/80" : "text-slate-600 hover:bg-white/60"
                 }`
               }
             >

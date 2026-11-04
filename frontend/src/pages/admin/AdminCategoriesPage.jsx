@@ -49,7 +49,7 @@ export default function AdminCategoriesPage() {
         <div className="mt-3"><FormError error={formError} /></div>
       </Card>
 
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {TRANSACTION_TYPES.map((t) => {
           const items = data.filter((c) => c.type === t.value);
           return (

@@ -42,7 +42,7 @@ export default function SavingGoalPage() {
           action={<Button onClick={() => setModal({ kind: "form" })}><Plus size={16} /> Buat target</Button>}
         />
       ) : (
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {data.map((g) => {
             const status = GOAL_STATUS[g.status];
             const active = g.status === "ACTIVE";

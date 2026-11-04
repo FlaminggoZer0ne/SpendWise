@@ -46,7 +46,7 @@ export default function NotificationBell() {
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-label={`Notifikasi, ${state.unreadCount} belum dibaca`}
-        className="relative rounded-lg p-2 text-slate-500 hover:bg-slate-100"
+        className="relative rounded-full p-2 text-emerald-600 hover:bg-white/60"
       >
         <Bell size={20} />
         {state.unreadCount > 0 && (
@@ -57,8 +57,8 @@ export default function NotificationBell() {
       </button>
 
       {open && (
-        <div className="absolute right-0 z-40 mt-2 w-80 max-w-[90vw] rounded-xl border border-slate-200 bg-white shadow-lg">
-          <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3">
+        <div className="glass-strong absolute right-0 z-40 mt-2 w-80 max-w-[90vw] overflow-hidden rounded-2xl">
+          <div className="flex items-center justify-between border-b border-white/60 px-4 py-3">
             <span className="text-sm font-semibold text-slate-900">Notifikasi</span>
             <button
               type="button"

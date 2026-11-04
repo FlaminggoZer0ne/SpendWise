@@ -41,7 +41,7 @@ export default function BudgetPage() {
 
       {loading && !data ? <Spinner /> : error ? <ErrorState error={error} onRetry={reload} /> : (
         <>
-          <div className="grid gap-3 sm:grid-cols-2">
+          <div className="grid grid-cols-2 gap-3">
             <StatCard label="Total batas anggaran" value={formatRupiah(data.totalLimit)} icon={PieChart} />
             <StatCard label="Total terpakai" value={formatRupiah(data.totalSpent)} tone="text-rose-600" />
           </div>
@@ -53,7 +53,7 @@ export default function BudgetPage() {
               action={<Button onClick={() => setModal({ kind: "form" })}><Plus size={16} /> Tambah anggaran</Button>}
             />
           ) : (
-            <div className="grid gap-4 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               {data.budgets.map((b) => (
                 <Card key={b.planId}>
                   <div className="flex items-start justify-between">

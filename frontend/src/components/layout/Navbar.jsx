@@ -27,9 +27,9 @@ export default function Navbar({ onMenu }) {
   };
 
   return (
-    <header className="sticky top-0 z-20 flex h-16 items-center justify-between border-b border-slate-200 bg-white px-4 md:px-8">
+    <header className="glass-strong sticky top-0 z-20 flex h-16 items-center justify-between rounded-none border-x-0 border-t-0 px-4 md:px-8">
       <div className="flex items-center gap-3">
-        <button type="button" onClick={onMenu} aria-label="Buka menu" className="rounded-lg p-2 text-slate-500 hover:bg-slate-100 md:hidden">
+        <button type="button" onClick={onMenu} aria-label="Buka menu" className="rounded-xl p-2 text-slate-500 hover:bg-white/60 md:hidden">
           <Menu size={20} />
         </button>
         <h1 className="text-lg font-semibold">{TITLES[pathname] ?? "SpendWise"}</h1>

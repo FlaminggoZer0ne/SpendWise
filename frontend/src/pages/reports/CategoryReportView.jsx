@@ -35,7 +35,7 @@ export default function CategoryReportView({ report }) {
       {report.rows.length === 0 ? (
         <EmptyState title="Tidak ada pengeluaran" description="Tidak ada pengeluaran pada rentang tanggal ini." />
       ) : (
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           <Card>
             <h2 className="mb-1 text-base font-semibold">Pengeluaran per kategori</h2>
             <p className="mb-3 text-sm text-slate-500">Terbesar: <span className="font-medium text-slate-800">{report.topExpenseCategory}</span></p>

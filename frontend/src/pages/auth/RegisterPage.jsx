@@ -4,6 +4,7 @@ import { register } from "../../api/authApi";
 import Button from "../../components/ui/Button";
 import Input from "../../components/ui/Input";
 import { FormError } from "../../components/ui/Feedback";
+import AmbientBackground from "../../components/layout/AmbientBackground";
 import { useToast } from "../../components/ui/Toast";
 
 export default function RegisterPage() {
@@ -30,8 +31,9 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center px-4 py-8">
-      <form onSubmit={submit} className="w-full max-w-sm space-y-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+    <div className="relative flex min-h-screen items-center justify-center px-4 py-8">
+      <AmbientBackground />
+      <form onSubmit={submit} className="glass-strong relative z-10 w-full max-w-sm space-y-4 rounded-3xl p-6">
         <h1 className="text-center text-xl font-bold">Buat Akun SpendWise</h1>
         {!error?.errors && <FormError error={error} />}
         <Input label="Username" value={form.username} onChange={set("username")} error={fe("username")} hint="4-30 karakter: huruf, angka, garis bawah" required />

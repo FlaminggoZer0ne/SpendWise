@@ -1,7 +1,7 @@
 import { useId } from "react";
 
 const FIELD =
-  "block w-full rounded-lg border bg-white px-3 py-2 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 disabled:bg-slate-100 disabled:text-slate-500";
+  "block w-full rounded-xl border bg-white/70 px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 backdrop-blur-md focus:bg-white/90 focus:outline-none focus:ring-2 focus:ring-emerald-500 disabled:bg-slate-100/70 disabled:text-slate-500";
 
 export function Field({ label, error, hint, htmlFor, children }) {
   return (

@@ -18,7 +18,12 @@ Kategori: **Ditambahkan**, **Diubah**, **Diperbaiki**, **Dihapus**.
 
 - Koleksi Postman `docs/api-tests/spendwise.postman_collection.json` (56 request) dan 26 screenshot di `docs/screenshots/`.
 
+### Diubah (tampilan)
+- Frontend memakai desain baru dari Figma: efek kaca (blur latar, tepi terang, bayangan lembut), kartu saldo bergradien dengan kilau, tombol utama bercahaya, latar blob warna, dan **bottom nav kaca melayang di ponsel** (sidebar tetap di desktop). Perubahan terpusat di `index.css` dan komponen `ui/*`; logika, API, dan teks tidak berubah. Lihat `docs/FRONTEND.md` §6.1.
+- Screenshot di `docs/screenshots/` diganti dengan tampilan baru. 40/40 skenario browser tetap lulus.
+
 ### Diperbaiki
+- Responsivitas: grafik dan kartu tidak lagi melebarkan halaman (scroll horizontal) pada layar sempit/jendela dengan DevTools terbuka. Grid satu kolom memakai `grid-cols-1` + `min-w-0` pada `Card`/`main`; padding halaman dan kartu lebih rapat di ponsel. Dicek tanpa overflow di lebar 320–1366 px untuk 8 halaman.
 - `ReportPage`: pindah tab laporan sempat merender data tab sebelumnya (peringatan React key); kini menampilkan spinner sampai data baru tiba.
 
 ### Diubah

@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { Bar } from "react-chartjs-2";
-import { ArrowDownCircle, ArrowUpCircle, PiggyBank, Wallet } from "lucide-react";
+import { ArrowDownCircle, ArrowUpCircle, PiggyBank } from "lucide-react";
 import { getDashboard, getPeriodReport } from "../../api/reportApi";
 import { getGoals } from "../../api/goalApi";
 import { getTransactions } from "../../api/transactionApi";
 import useFetch from "../../hooks/useFetch";
-import Card, { StatCard } from "../../components/ui/Card";
+import Card, { HeroCard, StatCard } from "../../components/ui/Card";
 import EmptyState from "../../components/ui/EmptyState";
 import { ErrorState, Spinner } from "../../components/ui/Feedback";
 import ProgressBar from "../../components/ui/ProgressBar";
@@ -46,17 +46,20 @@ export default function DashboardPage() {
 
   return (
     <>
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <StatCard label="Total saldo" value={formatRupiah(s.totalBalance)} icon={Wallet} />
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 xl:grid-cols-4">
+        <HeroCard label="Total saldo" value={formatRupiah(s.totalBalance)} className="col-span-2">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-white/50 bg-white/20 px-3 py-1 text-xs backdrop-blur-md">
+            <PiggyBank size={14} /> Saving rate {formatPersen(s.savingRate)} bulan ini
+          </span>
+        </HeroCard>
         <StatCard label="Pemasukan bulan ini" value={formatRupiah(s.monthIncome)} tone="text-emerald-600" icon={ArrowDownCircle} />
         <StatCard label="Pengeluaran bulan ini" value={formatRupiah(s.monthExpense)} tone="text-rose-600" icon={ArrowUpCircle} />
-        <StatCard label="Saving rate" value={formatPersen(s.savingRate)} icon={PiggyBank} hint="Bulan ini" />
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         <Card className="lg:col-span-2">
           <h2 className="mb-3 text-base font-semibold">Pemasukan vs Pengeluaran ({MONTHS_SHOWN} bulan terakhir)</h2>
-          <div className="h-64"><Bar data={chart} options={chartOptions} /></div>
+          <div className="relative h-56 sm:h-64"><Bar data={chart} options={chartOptions} /></div>
         </Card>
 
         <Card>
@@ -75,7 +78,7 @@ export default function DashboardPage() {
         </Card>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Card>
           <h2 className="mb-3 text-base font-semibold">Target tabungan aktif</h2>
           {activeGoals.length === 0 ? (

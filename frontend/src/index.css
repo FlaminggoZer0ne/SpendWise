@@ -9,3 +9,39 @@
     @apply text-slate-900;
   }
 }
+
+/* Efek kaca ala iOS: isi putih semi-transparan + blur latar + tepi terang + bayangan lembut. */
+@layer components {
+  .glass {
+    @apply border border-white/70 bg-white/60 shadow-[0_8px_24px_rgba(15,23,42,0.08)] ring-1 ring-slate-900/5 backdrop-blur-xl;
+  }
+  .glass-strong {
+    @apply border border-white/80 bg-white/70 shadow-[0_10px_30px_rgba(15,23,42,0.14)] ring-1 ring-slate-900/5 backdrop-blur-2xl;
+  }
+  .glass-field {
+    @apply border border-slate-200/90 bg-white/70 backdrop-blur-md;
+  }
+  .btn-glow {
+    box-shadow: 0 8px 20px rgba(5, 150, 105, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+  .hero-gloss {
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0) 65%);
+  }
+}
+
+/* Cadangan: tanpa dukungan blur, atau pengguna meminta mengurangi transparansi → isi hampir solid. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass,
+  .glass-strong,
+  .glass-field {
+    background-color: rgba(255, 255, 255, 0.94);
+  }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .glass,
+  .glass-strong,
+  .glass-field {
+    background-color: #fff;
+    backdrop-filter: none;
+  }
+}

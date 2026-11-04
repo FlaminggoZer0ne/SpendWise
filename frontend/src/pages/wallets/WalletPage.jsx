@@ -3,7 +3,7 @@ import { ArrowRightLeft, Banknote, Landmark, Pencil, Plus, Smartphone, Trash2, W
 import { deleteWallet, getWallets } from "../../api/walletApi";
 import useFetch from "../../hooks/useFetch";
 import Button from "../../components/ui/Button";
-import Card, { StatCard } from "../../components/ui/Card";
+import Card, { HeroCard } from "../../components/ui/Card";
 import ConfirmDialog from "../../components/ui/ConfirmDialog";
 import EmptyState from "../../components/ui/EmptyState";
 import { ErrorState, Spinner } from "../../components/ui/Feedback";
@@ -34,7 +34,7 @@ export default function WalletPage() {
   return (
     <>
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <StatCard label="Total saldo semua dompet" value={formatRupiah(data.totalBalance)} icon={WalletIcon} />
+        <HeroCard label="Total saldo semua dompet" value={formatRupiah(data.totalBalance)} className="min-w-[260px] flex-1" />
         <div className="flex gap-2">
           <Button variant="secondary" disabled={wallets.length < 2} onClick={() => setModal({ kind: "transfer" })}>
             <ArrowRightLeft size={16} /> Transfer

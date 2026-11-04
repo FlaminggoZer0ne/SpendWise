@@ -48,7 +48,7 @@ frontend/src/
 │   └── reportApi.js                                                   [A4]
 ├── context/AuthContext.jsx  ← user aktif, login(), logout(), loading  [A1]
 ├── components/              ← komponen bersama                        [Bersama]
-│   ├── layout/AppLayout.jsx, Navbar.jsx, Sidebar.jsx
+│   ├── layout/AppLayout.jsx, Navbar.jsx, Sidebar.jsx, BottomNav.jsx (ponsel), AmbientBackground.jsx, menu.js
 │   ├── ProtectedRoute.jsx
 │   ├── NotificationBell.jsx                                           [A3]
 │   └── ui/Button.jsx, Input.jsx, Select.jsx, Modal.jsx, Card.jsx, Table.jsx,
@@ -204,6 +204,24 @@ Setiap halaman daftar wajib punya 3 keadaan: **loading** (skeleton/spinner), **k
 - Layout: sidebar kiri 240 px (desktop), menjadi drawer di layar < 768 px; navbar atas berisi judul halaman, lonceng notifikasi, menu pengguna.
 - Angka uang rata kanan di tabel dan memakai `tabular-nums`.
 - Konfirmasi wajib sebelum hapus (`ConfirmDialog`), setelah aksi berhasil tampilkan `Toast`.
+
+### 6.1 Efek kaca (glass) — mengikuti desain Figma "SpendWise Mobile App"
+
+Tampilan memakai efek ala iOS: isi putih semi-transparan + blur latar + tepi terang + bayangan lembut. Semua gaya terpusat di `src/index.css` dan komponen `ui/*`; **halaman tidak boleh menulis ulang `bg-white border shadow`** — pakai `Card`, `Table`, `Modal`, atau kelas di bawah.
+
+| Kelas / komponen | Pemakaian |
+|---|---|
+| `.glass` | Kartu, tabel, daftar (isi putih 60%, blur 24 px) |
+| `.glass-strong` | Navbar, sidebar, modal, dropdown notifikasi, bottom nav (putih 70%, blur 40 px) |
+| `.glass-field` | Tombol sekunder, chip tidak aktif |
+| `.btn-glow` | Tombol utama / chip aktif / kartu saldo: bayangan hijau + sorot tepi atas |
+| `HeroCard` (`ui/Card.jsx`) | Kartu saldo bergradien emerald dengan kilau (Dashboard, Dompet) |
+| `AmbientBackground` | Tiga blob warna (hijau/biru/ungu) diburamkan di belakang halaman — tanpa ini blur tidak terlihat |
+| `BottomNav` | Pil kaca melayang di bawah layar, hanya < 768 px; tab utama per role di `layout/menu.js` (`BOTTOM_TABS`), menu lain lewat drawer |
+
+- Konten halaman diberi `pb-28` di ponsel agar tidak tertutup bottom nav.
+- **Aksesibilitas:** `@media (prefers-reduced-transparency: reduce)` dan browser tanpa `backdrop-filter` otomatis memakai isi putih hampir solid. Teks tetap `slate-600`+ di atas kaca agar kontras terjaga.
+- Gradien dan blob memakai nilai Tailwind langsung (bukan token variabel); warna dasar tetap emerald/slate dari tabel di atas.
 
 ---
 

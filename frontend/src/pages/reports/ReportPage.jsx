@@ -54,7 +54,7 @@ export default function ReportPage() {
             role="tab"
             aria-selected={tab === t.key}
             onClick={() => setTab(t.key)}
-            className={`rounded-lg px-4 py-2 text-sm font-medium ${tab === t.key ? "bg-emerald-600 text-white" : "bg-white text-slate-600 hover:bg-slate-100"}`}
+            className={`rounded-lg px-4 py-2 text-sm font-medium ${tab === t.key ? "btn-glow bg-gradient-to-br from-emerald-500 to-emerald-600 text-white" : "glass-field text-slate-600 hover:bg-white/90"}`}
           >
             {t.label}
           </button>
